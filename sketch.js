@@ -16,19 +16,19 @@ function draw(){
 background("lightgreen");
 
 if(keyDown("up")){    
-poschange(0,-2);
+writePosition(0,-2);
 }
 
 if(keyDown("down")){
-poschange(0,2);    
+writePosition(0,2);    
 }
 
 if(keyDown("left")){
-poschange(-2,0);    
+writePosition(-2,0);    
 }
 
 if(keyDown("right")){
-poschange(2,0);    
+writePosition(2,0);    
 }
 
 drawSprites();    
@@ -39,7 +39,16 @@ position=data.val();
 ball.x=position.x;
 ball.y=position.y;    
 }
-function poschange(x,y){
-ball.x=ball.x+x;
-ball.y=ball.y+y;
+
+function writePosition(x,y){
+database.ref('ball/position').set({
+x : position.x+x,
+y : position.y+y
+
+})
 }
+
+function showError(){
+console.log("error");    
+}
+
