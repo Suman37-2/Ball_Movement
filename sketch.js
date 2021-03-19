@@ -47,7 +47,6 @@ y : position.y+y
 
 })
 }
-
 function showError(){
 console.log("error");    
 }
